@@ -5,6 +5,9 @@ code .
 
 ng g c shared/navbar --dry-run
 
+https://meyerweb.com/eric/tools/css/reset/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
