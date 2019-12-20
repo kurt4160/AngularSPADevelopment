@@ -5,11 +5,7 @@
 
   <mat-card-content>
     <div>
-      <img
-        *ngIf="selectedPerson.imgUrl"
-        [src]="selectedPerson.imgUrl"
-        width="120px"
-      />
+      <img [src]="selectedPerson.imgUrl" width="120px" />
     </div>
     <div>Person: {{ selectedPerson.name }}, {{ selectedPerson.age }}</div>
   </mat-card-content>

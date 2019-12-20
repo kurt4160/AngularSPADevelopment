@@ -1,0 +1,14 @@
+<div style="margin: 0.5rem;">
+  <app-foods-list
+    [foods]="foods"
+    (selectedFood)="onFoodSelected($event)"
+  ></app-foods-list>
+</div>
+<div style="margin: 0.5rem;">
+  <app-food-edit
+    *ngIf="selectedFood"
+    [food]="selectedFood"
+    [editMode]="true"
+    (saveFood)="onFoodSaved($event)"
+  ></app-food-edit>
+</div>

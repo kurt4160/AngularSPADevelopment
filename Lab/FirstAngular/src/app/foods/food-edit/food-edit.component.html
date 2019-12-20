@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>Edit food properties</mat-card-header>
+  <mat-card-content>
+    <form
+      fxLayout="column"
+      [formGroup]="foodForm"
+      novalidate
+      (ngSubmit)="saveFoodForm(foodForm)"
+    >
+      <mat-form-field fxFlex>
+        <input matInput type="text" formControlName="name" placeholder="Name" />
+        <mat-error *ngIf="foodForm.controls['name'].errors != undefined">
+          Name is required (minimum 4 characters).
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          type="text"
+          formControlName="price"
+          placeholder="Price"
+        />
+        <mat-error *ngIf="foodForm.controls['price'].errors != undefined">
+          Price must be greater than 0.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          type="text"
+          formControlName="calories"
+          placeholder="Calories"
+        />
+        <mat-error *ngIf="foodForm.controls['calories'].errors != undefined">
+          Calories must be greater than 0.
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Save</button>
+    </form>
+  </mat-card-content>
+</mat-card>

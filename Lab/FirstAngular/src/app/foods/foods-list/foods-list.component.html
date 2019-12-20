@@ -1,0 +1,54 @@
+<mat-card color="primary">
+  <mat-card-header color="primary">List of all foods</mat-card-header>
+  <mat-card-content>
+    <mat-toolbar color="primary">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Filter"
+          (keyup)="applyFilter($event.target.value)"
+        />
+      </mat-form-field>
+      <a mat-raised-button (click)="addFood()">Add</a>
+    </mat-toolbar>
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+          >Name</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+          >Price</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element">{{ element.price }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="calories">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+          >Calories</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element">{{ element.calories }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            (click)="selectFood(element)"
+            color="primary"
+          >
+            Edit
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
